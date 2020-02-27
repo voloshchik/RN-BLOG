@@ -9,7 +9,11 @@ export const PostScreen = ({}) => {
   )
 }
 PostScreen.navigationOptions={
-  headerTitle:'Пост номер 22'
+  headerTitle:'Пост номер 22',
+  headerStyle:{
+    backgroundColor:'red',
+    headerTintcolor:'#fff'
+  }
 }
 const styles = StyleSheet.create({
   center: {
