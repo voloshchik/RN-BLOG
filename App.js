@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { AppLoading } from "expo";
-import { bootstarap } from './src/bootstrap';
+import { bootstarap } from "./src/bootstrap";
 
 export default function App() {
   const [isReady, setIsReadi] = useState(false);
@@ -15,8 +15,10 @@ export default function App() {
     );
   }
   return (
-    <View>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
+      <Text style={{ justifyContent: "center", alignItems: "center" }}>
+        Open up App.jskkkkkkkkkkkkkkk to start working on your app!
+      </Text>
     </View>
   );
 }
