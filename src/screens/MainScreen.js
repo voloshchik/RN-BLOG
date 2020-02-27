@@ -5,8 +5,8 @@ import { DATA } from "../data";
 import Post from "../componens/Post";
 
 export const MainScreen = ({ navigation }) => {
-  const goToPost = () => {
-    navigation.navigate("Post");
+  const openPostHandler = post => {
+    navigation.navigate("Post",{postId:post.id,date:post.date});
   };
   return (
     <View style={styles.wrapper}>
@@ -14,7 +14,7 @@ export const MainScreen = ({ navigation }) => {
         data={DATA}
         keyExtractor={post => post.id.toString()}
         renderItem={({ item }) => {
-          return <Post post={item} />;
+          return <Post post={item} onOpen={openPostHandler} />;
         }}
       />
     </View>

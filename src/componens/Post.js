@@ -1,8 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity
+} from "react-native";
 
- const Post = ({ post }) => {
-    return (
+const Post = ({ post,onOpen }) => {
+  return (
+    <TouchableOpacity activeOpacity={0.7} onPress={()=>onOpen(post)}>
       <View style={styles.post}>
         <ImageBackground style={styles.image} source={{ uri: post.img }}>
           <View style={styles.textWrap}>
@@ -12,27 +19,28 @@ import { View, Text, StyleSheet, ImageBackground } from "react-native";
           </View>
         </ImageBackground>
       </View>
-    )
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  post: {
+    marginBottom: 15,
+    overflow: "hidden"
+  },
+  image: {
+    width: "100%",
+    height: 200
+  },
+  textWrap: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    paddingVertical: 5,
+    alignItems: "center",
+    width: "100%"
+  },
+  title: {
+    color: "#fff",
+    fontFamily: "open-regular"
   }
-  
-  const styles = StyleSheet.create({
-    post: {
-      marginBottom: 15,
-      overflow: 'hidden'
-    },
-    image: {
-      width: '100%',
-      height: 200
-    },
-    textWrap: {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      paddingVertical: 5,
-      alignItems: 'center',
-      width: '100%'
-    },
-    title: {
-      color: '#fff',
-      fontFamily: 'open-regular'
-    }
-  })
-  export default Post
+});
+export default Post;
