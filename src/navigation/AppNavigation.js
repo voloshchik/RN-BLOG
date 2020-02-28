@@ -3,7 +3,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from "@expo/vector-icons";
-
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import { MainScreen } from "../screens/MainScreen";
 import { PostScreen } from "../screens/PostScreen";
 import { THEME } from "../../theme";
@@ -39,7 +39,7 @@ const BookedNavigator = createStackNavigator(
     }
   }
 );
-const BottomNavigator = createBottomTabNavigator({
+const BootomTabsConfig = {
   Post: {
     screen: PostNavigator,
     navigationOptions: {
@@ -56,9 +56,18 @@ const BottomNavigator = createBottomTabNavigator({
       )
     }
   }
-},{
-  tabBarOptions:{
-    activeTintColor:THEME.MAIN_COLOR
-  }
-});
+};
+
+const BottomNavigator =
+  Platform.OS === "android"
+    ? createMaterialBottomTabNavigator(BootomTabsConfig, {
+        activeTintColor: "#fff",
+        shifting: true,
+        backgroundColor: THEME.MAIN_COLOR
+      })
+    : createBottomTabNavigator(BootomTabsConfig, {
+        tabBarOptions: {
+          activeTintColor: THEME.MAIN_COLOR
+        }
+      });
 export const AppNavigation = createAppContainer(BottomNavigator);
