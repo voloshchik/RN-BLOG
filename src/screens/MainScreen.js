@@ -1,9 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { DATA } from "../data";
-import Post from "../componens/Post";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
+import Post from "../componens/Post";
+import { DATA } from "../data";
+import AppHeaderIcon from "../componens/AppHeaderIcon";
 export const MainScreen = ({ navigation }) => {
   const openPostHandler = post => {
     navigation.navigate("Post", { postId: post.id, date: post.date });
@@ -22,7 +24,15 @@ export const MainScreen = ({ navigation }) => {
 };
 MainScreen.navigationOptions = {
   headerTitle: "Мой блог",
-  headerRight: <Text>Hello</Text>
+  headerRight: (
+    <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+      <Item
+        title="take photo"
+        iconName="ios-camera"
+        onPress={() => console.log("ssss")}
+      />
+    </HeaderButtons>
+  )
 };
 const styles = StyleSheet.create({
   wrapper: {
