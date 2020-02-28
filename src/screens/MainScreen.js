@@ -6,7 +6,7 @@ import Post from "../componens/Post";
 
 export const MainScreen = ({ navigation }) => {
   const openPostHandler = post => {
-    navigation.navigate("Post",{postId:post.id,date:post.date});
+    navigation.navigate("Post", { postId: post.id, date: post.date });
   };
   return (
     <View style={styles.wrapper}>
@@ -21,7 +21,8 @@ export const MainScreen = ({ navigation }) => {
   );
 };
 MainScreen.navigationOptions = {
-  headerTitle: "Мой блог"
+  headerTitle: "Мой блог",
+  headerRight: <Text>Hello</Text>
 };
 const styles = StyleSheet.create({
   wrapper: {
