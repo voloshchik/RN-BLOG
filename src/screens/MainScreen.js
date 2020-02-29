@@ -1,11 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
-import Post from "../componens/Post";
 import { DATA } from "../data";
 import AppHeaderIcon from "../componens/AppHeaderIcon";
+import PostList from "../componens/PostList";
 export const MainScreen = ({ navigation }) => {
   const openPostHandler = post => {
     navigation.navigate("Post", {
@@ -14,17 +12,7 @@ export const MainScreen = ({ navigation }) => {
       booked: post.booked
     });
   };
-  return (
-    <View style={styles.wrapper}>
-      <FlatList
-        data={DATA}
-        keyExtractor={post => post.id.toString()}
-        renderItem={({ item }) => {
-          return <Post post={item} onOpen={openPostHandler} />;
-        }}
-      />
-    </View>
-  );
+  return <PostList data={DATA} openPost={openPostHandler} />;
 };
 MainScreen.navigationOptions = {
   headerTitle: "Мой блог",
@@ -47,8 +35,3 @@ MainScreen.navigationOptions = {
     </HeaderButtons>
   )
 };
-const styles = StyleSheet.create({
-  wrapper: {
-    padding: 10
-  }
-});
