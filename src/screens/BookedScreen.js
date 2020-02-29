@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-
+import { useSelector } from "react-redux";
 import { DATA } from "../data";
 import AppHeaderIcon from "../componens/AppHeaderIcon";
 import PostList from "../componens/PostList";
@@ -13,9 +13,8 @@ export const BookedScreen = ({ navigation }) => {
       booked: post.booked
     });
   };
-  return (
-    <PostList data={DATA.filter(p => p.booked)} openPost={openPostHandler} />
-  );
+  const bookedPost = useSelector(state => state.post.bookedPost);
+  return <PostList data={bookedPost} openPost={openPostHandler} />;
 };
 BookedScreen.navigationOptions = ({ navigation }) => ({
   headerTitle: "Мой блог",
