@@ -82,14 +82,35 @@ const CreateNavigator = createStackNavigator(
   },
   navigatorOptions
 );
-const MainNavigator = createDrawerNavigator({
-  PostTabs: {
-    screen: BottomNavigator
+const MainNavigator = createDrawerNavigator(
+  {
+    PostTabs: {
+      screen: BottomNavigator,
+      navigationOptions: {
+        drawerLabel: "Главная"
+      }
+    },
+    About: {
+      screen: AboutNavigator,
+      navigationOptions: {
+        drawerLabel: "О Приложении"
+      }
+    },
+    Create: {
+      screen: CreateNavigator,
+      navigationOptions: {
+        drawerLabel: "Добавить Пост"
+      }
+    }
   },
-  About: {
-    screen: AboutNavigator
-  },
-  Create: CreateNavigator
-});
+  {
+    contentOptions: {
+      activeTintColor: THEME.MAIN_COLOR,
+      labelStyle: {
+        fontFamily: "open-bold"
+      }
+    }
+  }
+);
 
 export const AppNavigation = createAppContainer(MainNavigator);
