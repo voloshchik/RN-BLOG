@@ -10,39 +10,33 @@ import { THEME } from "../../theme";
 import { Platform } from "react-native";
 import { BookedScreen } from "../screens/BookedScreen";
 
+const navigatorOptions = {
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: Platform.OS === "android" ? THEME.MAIN_COLOR : "#fff"
+    },
+    headerTintColor: Platform.OS === "android" ? "#fff" : THEME.MAIN_COLOR
+  }
+};
 const PostNavigator = createStackNavigator(
   {
     Main: MainScreen,
     Post: PostScreen
   },
-  {
-    initialRouteName: "Main",
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: Platform.OS === "android" ? THEME.MAIN_COLOR : "#fff"
-      },
-      headerTintColor: Platform.OS === "android" ? "#fff" : THEME.MAIN_COLOR
-    }
-  }
+  navigatorOptions
 );
 const BookedNavigator = createStackNavigator(
   {
     Booked: BookedScreen,
     Post: PostScreen
   },
-  {
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: Platform.OS === "android" ? THEME.MAIN_COLOR : "#fff"
-      },
-      headerTintColor: Platform.OS === "android" ? "#fff" : THEME.MAIN_COLOR
-    }
-  }
+  navigatorOptions
 );
 const BootomTabsConfig = {
   Post: {
     screen: PostNavigator,
     navigationOptions: {
+      tabBarLabel: "Все",
       tabBarIcon: info => (
         <Ionicons name="ios-albums" size={25} color={info.tintColor} />
       )
@@ -51,6 +45,7 @@ const BootomTabsConfig = {
   Booked: {
     screen: BookedNavigator,
     navigationOptions: {
+      tabBarLabel: "Избранное",
       tabBarIcon: info => (
         <Ionicons name="ios-star" size={25} color={info.tintColor} />
       )
