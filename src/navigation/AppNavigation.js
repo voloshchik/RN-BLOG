@@ -4,11 +4,15 @@ import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+import { createDrawerNavigator } from "react-navigation-drawer";
+
 import { MainScreen } from "../screens/MainScreen";
 import { PostScreen } from "../screens/PostScreen";
 import { THEME } from "../../theme";
 import { Platform } from "react-native";
 import { BookedScreen } from "../screens/BookedScreen";
+import { AboutScreen } from "../screens/AboutScreen";
+import { CreateScreen } from "../screens/CreateScreen";
 
 const navigatorOptions = {
   defaultNavigationOptions: {
@@ -65,4 +69,14 @@ const BottomNavigator =
           activeTintColor: THEME.MAIN_COLOR
         }
       });
-export const AppNavigation = createAppContainer(BottomNavigator);
+const MainNavigator = createDrawerNavigator({
+  PostTabs: {
+    screen: BottomNavigator
+  },
+  About: {
+    screen: AboutScreen
+  },
+  Create: CreateScreen
+});
+
+export const AppNavigation = createAppContainer(MainNavigator);
