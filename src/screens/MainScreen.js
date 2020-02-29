@@ -20,7 +20,7 @@ MainScreen.navigationOptions = ({ navigation }) => ({
       <Item
         title="take photo"
         iconName="ios-camera"
-        onPress={() => console.log("ssss")}
+        onPress={() => navigation.push("Create")}
       />
     </HeaderButtons>
   ),
