@@ -1,8 +1,7 @@
 import React from "react";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-
-import { DATA } from "../data";
 import AppHeaderIcon from "../componens/AppHeaderIcon";
+import { DATA } from "../data";
 import PostList from "../componens/PostList";
 export const MainScreen = ({ navigation }) => {
   const openPostHandler = post => {

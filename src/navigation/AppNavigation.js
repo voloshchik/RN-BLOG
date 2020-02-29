@@ -69,14 +69,27 @@ const BottomNavigator =
           activeTintColor: THEME.MAIN_COLOR
         }
       });
+
+const AboutNavigator = createStackNavigator(
+  {
+    About: AboutScreen
+  },
+  navigatorOptions
+);
+const CreateNavigator = createStackNavigator(
+  {
+    Create: CreateScreen
+  },
+  navigatorOptions
+);
 const MainNavigator = createDrawerNavigator({
   PostTabs: {
     screen: BottomNavigator
   },
   About: {
-    screen: AboutScreen
+    screen: AboutNavigator
   },
-  Create: CreateScreen
+  Create: CreateNavigator
 });
 
 export const AppNavigation = createAppContainer(MainNavigator);
