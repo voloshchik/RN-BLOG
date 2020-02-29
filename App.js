@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { AppLoading } from 'expo'
-import { AppNavigation } from './src/navigation/AppNavigation'
-import { bootstrap } from './src/bootstrap'
-
+import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { AppLoading } from "expo";
+import { AppNavigation } from "./src/navigation/AppNavigation";
+import { bootstrap } from "./src/bootstrap";
+import store from './src/store'
 export default function App() {
-  const [isReady, setIsReady] = useState(false)
+  const [isReady, setIsReady] = useState(false);
 
   if (!isReady) {
     return (
@@ -14,8 +14,12 @@ export default function App() {
         onFinish={() => setIsReady(true)}
         onError={err => console.log(err)}
       />
-    )
+    );
   }
 
-  return <AppNavigation />
+  return (
+    <Provider store={store}>
+      <AppNavigation />
+    </Provider>
+  );
 }
