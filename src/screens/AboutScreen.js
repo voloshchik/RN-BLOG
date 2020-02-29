@@ -5,7 +5,10 @@ import AppHeaderIcon from "../componens/AppHeaderIcon";
 export const AboutScreen = ({}) => {
   return (
     <View style={styles.center}>
-      <Text style={styles.title}>About</Text>
+      <Text style={styles.title}>
+        Это лучшее приложение для заметок версия{" "}
+        <Text style={styles.virsion}>1.0.0</Text>
+      </Text>
     </View>
   );
 };
@@ -29,9 +32,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  title: {
-    color: "red",
-    fontSize: 40,
-    padding: 19
+
+  virsion: {
+    fontWeight: "bold"
   }
 });
