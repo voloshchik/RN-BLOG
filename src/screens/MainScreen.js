@@ -18,7 +18,7 @@ export const MainScreen = ({ navigation }) => {
   useEffect(() => {
     dispatch(loadPosts());
   }, [dispatch]);
-  return <PostList data={allPosts} openPost={openPostHandler} />;
+  return <PostList data={allPosts} onOpen={openPostHandler} />;
 };
 MainScreen.navigationOptions = ({ navigation }) => ({
   headerTitle: "Мой блог",
