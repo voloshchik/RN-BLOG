@@ -1,4 +1,4 @@
-import { LOAD_POSTS, TOGGLE_BOOKED, REMOVE_POST } from "../types";
+import { LOAD_POSTS, TOGGLE_BOOKED, REMOVE_POST, ADD_POST } from "../types";
 const initialState = {
   allPosts: [],
   bookedPosts: []
@@ -20,15 +20,18 @@ export const postReducer = (state = initialState, action) => {
       });
       return { ...state, allPost, bookedPosts: allPost.filter(p => p.booked) };
     case REMOVE_POST:
-       
       return {
         ...state,
         allPosts: state.allPosts.filter(p => p.id !== action.payload),
         bookedPosts: state.bookedPosts.filter(p => p.id !== action.payload)
       };
+    case ADD_POST:
+      return { ...state, allPosts: [{ ...action.payload }, ...state.allPosts] };
     default:
       return state;
   }
-
-  
 };
+// return {
+//   ...state,
+//   allPosts: [{ ...action.payload }, ...state.allPosts]
+// }
