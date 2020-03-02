@@ -22,6 +22,6 @@ export const removePost = id => {
   };
 };
 export const addPost = post => {
-  post.id = Date.now().toString;
+  post.id = Date.now().toString();
   return { type: ADD_POST, payload: post };
 };
