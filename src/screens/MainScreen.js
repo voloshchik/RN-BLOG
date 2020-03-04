@@ -54,3 +54,4 @@ MainScreen.navigationOptions = ({ navigation }) => ({
     </HeaderButtons>
   )
 });
+console.log(object)
