@@ -4,7 +4,7 @@
     "slug": "rn-blog",
     "privacy": "public",
     "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/rn-icon.png",
@@ -22,8 +22,7 @@
     },
     "android": {
       "package": "com.vladimir_voloshchik_rn_app",
-      "versionCode": 1,
-      "permissions": ["CAMERA", "WRITE_EXTERNAL_STORAGE"]
+      "versionCode": 1
     }
   }
 }
