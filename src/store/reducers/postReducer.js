@@ -35,5 +35,5 @@ export const postReducer = (state = initialState, action) => {
 };
 // return {
 //   ...state,
-//   allPosts: [{ ...action.payload }, ...state.allPosts]
+//   allPosts: [{ ...action.payload }, ...state.allPosts]!!//
 // }

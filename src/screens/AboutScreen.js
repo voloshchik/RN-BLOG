@@ -14,7 +14,9 @@ export const AboutScreen = ({}) => {
 };
 
 AboutScreen.navigationOptions = ({ navigation }) => ({
-  headerTitle: "О Приложении",
+
+  headerTitle: "О Приложении!!!!",
+
 
   headerLeft: (
     <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
